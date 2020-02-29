@@ -30,3 +30,17 @@ sudo pacman -S picom
 #the config files need to be put in ~/.config/picom/
 
 #### End of what needs to be installed pre i3 config
+
+### Now time for some zoomer shell
+
+sudo pacman -S zsh
+
+chsh -l
+#use /bin/zsh
+
+chsh -c /bin/zsh
+
+sudo reboot -n
+
+#To see if correct
+echo $SHELL
