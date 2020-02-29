@@ -84,5 +84,12 @@ makepkg -si
 # Now one can copy paste the .zshrc
 
 # Last but not least. VIM settings
+Incase vim is not installed\
+sudo pacman -S vim
+
+# For vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 
 
