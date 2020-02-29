@@ -4,8 +4,8 @@ My config files for Manjaro Gnome terminal with i3-gaps
 
 ### packages that needs to be installed before applying i3 config IMPORTANT!!!!
 
-i3-lock, i3wm and i3-gaps;
-sudo pacman -S i3blocks
+i3-lock, i3wm and i3-gaps\
+sudo pacman -S i3blocks\
 
 # Feh for wallpaper
 sudo pacman -S feh
