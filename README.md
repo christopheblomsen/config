@@ -1,8 +1,8 @@
 # config
-My config files for Manjaro with i3-gaps
+My config files for Manjaro Gnome terminal with i3-gaps
 
 
-#packages that needs to be installed
+### packages that needs to be installed before applying i3 config IMPORTANT!!!!
 
 i3-lock, i3wm and i3-gaps #add terminal commands later
 sudo pacman -S i3blocks
@@ -22,12 +22,11 @@ sudo pacman -S arc-gtk-theme
 
 #in firefox browser add arc darker theme fireox add on
 
-#icons
-git clone https://aur.archlinux.org/moka-icon-theme-git.git
-cd moka-icon-theme-git/
-
 #for rofi
 sudo pacman -S rofi
 
-#for compton
-sudo pacman -S compton
+#for picom
+sudo pacman -S picom
+#the config files need to be put in ~/.config/picom/
+
+#### End of what needs to be installed pre i3 config
