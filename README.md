@@ -16,5 +16,4 @@ sudo pacman -S lxappearance
 sudo pacman -S autoconf
 sudo pacman -S automake
 
-git clone https://github.com/horst3180/arc-firefox-theme && cd arc-firefox-theme
-./autogen.sh --prefix=/usr
+arc darker theme fireox add on
