@@ -87,9 +87,20 @@ makepkg -si
 Incase vim is not installed\
 sudo pacman -S vim
 
+# For the autocomplete
+sudo pacman -S cmake
+
 # For vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
+# after runing PlugInstall in .vimrc
+cd ~/.vim/plugged/ \
+git clone https://aur.archlinux.org/vim-youcompleteme-git.git \
+cd vim-youcompleteme-git && mv * ~/.vim/plugged/YouCompleteMe \
+cd YouCompleteMe \
+makepkg -si
 
 
 
