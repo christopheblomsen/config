@@ -17,4 +17,6 @@ sudo pacman -S autoconf
 sudo pacman -S automake
 sudo pacman -S arc-gtk-theme
 
-arc darker theme fireox add on
+#open lxappearance and apply
+
+#in firefox browser add arc darker theme fireox add on
