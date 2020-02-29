@@ -8,3 +8,6 @@ i3-lock, i3wm and i3-gaps #add terminal commands later
 
 #Feh for wallpaper
 sudo pacman -S feh
+
+#For fonts
+sudo pacman -S lxappearance
