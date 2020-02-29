@@ -42,5 +42,29 @@ chsh -c /bin/zsh
 
 sudo reboot -n
 
-#To see if correct
-echo $SHELL
+#go through installation proccess after reboot
+# next up OH-MY-ZOOMER
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# POWERLEVEL9K
+sudo pacman -S zsh-theme-powerlevel9k
+echo 'source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme' >> ~/.zshrc
+
+# POWERLINE
+#get the fonts
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+
+#move fonts to right place, might need to make dir
+mv PowerlineSymbols.otf ~/.local/share/fonts/
+
+#clear cache
+fc-cache -vf ~/.local/share/fonts/
+
+#moves the other fonts to the other location. Again, might need to make dir
+mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+
+# ZOOMER highlight
+
+sudo pacman -S zsh-syntax-highlighting 
+echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
