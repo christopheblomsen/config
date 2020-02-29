@@ -90,10 +90,15 @@ sudo pacman -S vim
 # For the autocomplete
 sudo pacman -S cmake
 
+# For Latex
+sudo pacman -S zathura
+
+
 # For vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Now you can copy paste the .vimrc file
 
 # after runing PlugInstall in .vimrc
 cd ~/.vim/plugged/ \
@@ -101,6 +106,9 @@ git clone https://aur.archlinux.org/vim-youcompleteme-git.git \
 cd vim-youcompleteme-git && mv * ~/.vim/plugged/YouCompleteMe \
 cd YouCompleteMe \
 makepkg -si
+# Now the fun begins
+sudo pacman -S base-devel \
+./install.py --clang-completer --system-libclang \
 
 
 
