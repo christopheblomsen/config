@@ -28,3 +28,5 @@ cd moka-icon-theme-git/
 #for rofi
 sudo pacman -S rofi
 
+#for compton
+sudo pacman -S compton
