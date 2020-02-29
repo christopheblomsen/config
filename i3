@@ -74,6 +74,7 @@ bindsym $mod+Shift+oslash move right
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
+
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
