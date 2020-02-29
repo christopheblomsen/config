@@ -219,7 +219,7 @@ bar {
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 #Wallpaper
-exec_always feh --bg-scale /home/chris/Pictures/purpleSpace.jpg
+#exec_always feh --bg-scale path/to/file
 
 
 #rofi instead
