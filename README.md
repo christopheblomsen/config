@@ -15,5 +15,6 @@ sudo pacman -S lxappearance
 #For themes
 sudo pacman -S autoconf
 sudo pacman -S automake
+sudo pacman -S arc-gtk-theme
 
 arc darker theme fireox add on
