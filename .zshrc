@@ -79,6 +79,7 @@ plugins=(
 	z	
 )
 
+source $ZSH/zsh-vim-mode/zsh-vim-mode.plugin.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -109,4 +110,26 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+#Prompts
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram battery)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+
+#Battery
+POWERLEVEL9K_BATTERY_STAGES="▁▂▃▄▅▆▇█"
 . ~/z.sh
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/chris/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/home/chris/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/chris/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/home/chris/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
