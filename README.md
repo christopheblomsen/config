@@ -10,6 +10,10 @@ sudo pacman -S i3blocks
 # Feh for wallpaper
 sudo pacman -S feh
 
+# For polybar
+yaourt -S polybar\
+read polybar installation manual
+
 # For fonts
 sudo pacman -S lxappearance
 
@@ -23,7 +27,8 @@ sudo pacman -S arc-gtk-theme
 # in firefox browser add arc darker theme fireox add on
 
 # for rofi
-sudo pacman -S rofi
+sudo pacman -S rofi\
+rofi-theme-selector
 
 # for picom
 sudo pacman -S picom
