@@ -44,11 +44,9 @@ bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 50
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec dmenu_run -fn 50
+# start rofi instead, depends on rofi and rofi themes
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left
@@ -172,29 +170,28 @@ hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	colors {
-		background $bg-color
-	    	separator #757575
+#bar {
+#        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#	colors {
+#		background $bg-color
+# 	    	separator #757575
 		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
-	position top
-	strip_workspace_numbers yes
-}
+#		focused_workspace  $bg-color          $bg-color          $text-color
+#		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#	}
+#	position top
+#	strip_workspace_numbers yes
+#}
+
+#chmod+x  ~/.config/polybar/launch.sh
+exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 
 #For locking the system
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 #Wallpaper
-exec_always feh --bg-fill /home/chris/Pictures/4k.jpg
-
-
-#rofi instead
-#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Cantarell 18"
+#exec_always feh --bg-fill PATH/TO/FILE
 
 #for transparancy
 exec no-startup-id picom .config/picom/picom.conf
@@ -205,6 +202,7 @@ exec_always xrandr --output eDP1 --scale 0.5x0.5
 
 #App keybindings
 bindsym $mod+f exec firefox
+bindsym $mod+n exec nmtui
 
 #Resize bindings
 bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
@@ -225,3 +223,10 @@ bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id amixer sset Master 10%+ 
 bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id amixer sset Master 1%+ && pkill -RTMIN+10 i3blocks
 
 bindsym XF86AudioPlay		exec --no-startup-id mpc toggle
+
+# Multi-screen screenshots with scrot
+bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+
+# OSX-like area selection screenshots
+bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
+
