@@ -113,9 +113,9 @@ syntax on
 "Hide .pyc files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
  
-" Bind F5 to save file if modified and execute python script in a buffer.
-nnoremap <silent> <F5> :call SaveAndExecutePython()<CR>
-vnoremap <silent> <F5> :<C-u>call SaveAndExecutePython()<CR>
+" Bind End to save file if modified and execute python script in a buffer.
+nnoremap <silent> <End> :call SaveAndExecutePython()<CR>
+vnoremap <silent> <End> :<C-u>call SaveAndExecutePython()<CR>
 
 function! SaveAndExecutePython()
     " SOURCE [reusable window]: https://github.com/fatih/vim-go/blob/master/autoload/go/ui.vim
@@ -169,3 +169,7 @@ function! SaveAndExecutePython()
     setlocal readonly
     setlocal nomodifiable
 endfunction
+
+"Auto folding
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview 
