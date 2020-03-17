@@ -1,11 +1,24 @@
 # config
 My config files for Manjaro Gnome terminal with i3-gaps
 
+### Fix fakeroots
+sudo pacman -S binutils make gcc pkg-config fakeroot
+
+### Get yaourt
+git clone https://aur.archlinux.org/package-query.git\      
+cd package-query.git\
+makepkg -si\
+cd ..\
+git clone https://aur.archlinux.org/yaourt.git\
+cd yaourt\
+makepkg -si\
+
 
 ### packages that needs to be installed before applying i3 config IMPORTANT!!!!
 
 i3-lock, i3wm and i3-gaps\
-sudo pacman -S i3blocks
+sudo pacman -S i3blocks\
+yaourt -S gnome-terminal-transparency
 
 # Feh for wallpaper
 sudo pacman -S feh
@@ -35,18 +48,6 @@ sudo pacman -S picom
 # the config files need to be put in ~/.config/picom/
 
 #### End of what needs to be installed pre i3 config
-
-### Fix fakeroots
-sudo pacman -S binutils make gcc pkg-config fakeroot
-
-### Get yaourt
-git clone https://aur.archlinux.org/package-query.git\      
-cd package-query.git\
-makepkg -si\
-cd ..\
-git clone https://aur.archlinux.org/yaourt.git\
-cd yaourt\
-makepkg -si\
 
 ### Now time for some zoomer shell
 
