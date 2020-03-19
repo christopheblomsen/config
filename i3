@@ -37,7 +37,8 @@ set $refresh_i3status killall -SIGUSR1 i3status
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+set $term gnome-terminal
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -102,7 +103,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:Terminals"
 set $ws2 "2:Firefox"
-set $ws3 "3"
+set $ws3 "3:Discord"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -126,6 +127,7 @@ bindsym $mod+0 workspace number $ws10
 #Force apps to open on workplace
 #find class with xprop
 for_window [class="firefox"] move workspace $ws2
+for_window [class="discord"] move workspace $ws3
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -187,22 +189,24 @@ hide_edge_borders both
 #chmod+x  ~/.config/polybar/launch.sh
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 
-#For locking the system
-bindsym $mod+shift+x exec i3lock --color "$bg-color"
-
 #Wallpaper
-#exec_always feh --bg-fill PATH/TO/FILE
+#exec_always --no-startup-id feh --bg-fill -z /home/chris/Pictures/solarized/
+
+#For locking the system
+#bindsym $mod+shift+x exec i3lock -i ~/Pictures/solarized/sudo.png -t 
 
 #for transparancy
-exec no-startup-id picom .config/picom/picom.conf
-exec_always picom
+exec --no-startup-id picom .config/picom/picom.conf
+exec_always --no-startup-id picom
 
 #for scaling
-exec_always xrandr --output eDP1 --scale 0.5x0.5
+exec_always xrandr --output eDP1 --scale 0.7x0.6
 
-#App keybindings
+#basic keybindings
 bindsym $mod+f exec firefox
-bindsym $mod+n exec nmtui
+bindsym $mod+n exec $term -e nmtui-connect
+bindsym $mod+r exec $term -e ranger
+bindsym $mod+c exec $term -e discord
 
 #Resize bindings
 bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
@@ -230,3 +234,5 @@ bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~
 # OSX-like area selection screenshots
 bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 
+#screecast
+bindsym $mod+Print exec byzanz-record --duration=10 --x=0 --y=0 --width=2736 --height=1824 ~/Videos/tmp.gif
