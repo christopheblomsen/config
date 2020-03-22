@@ -2,7 +2,7 @@ set nu
 set relativenumber
 syntax on
 set encoding=utf-8
-
+set clipboard=unnamed
 
 
 "Vim-plug installer
@@ -13,6 +13,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 "All pluggins between here and #end
 call plug#begin('~/.vim/plugged')
+
+"For vim-airline
+Plug 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = 1
 
 "For snippets
 Plug 'SirVer/ultisnips'
@@ -173,3 +177,9 @@ endfunction
 "Auto folding
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
+
+"Powerline
+set rtp+=/usr/lib/python3.8/site-packages/powerline/bindings/vim
+
+"Placeholder
+inoremap <c-j> <Esc>/<++><Return>dei
