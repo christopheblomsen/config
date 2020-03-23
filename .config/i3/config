@@ -190,8 +190,8 @@ hide_edge_borders both
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 
 #Wallpaper
-exec --no-startup-id betterlockscreen -u ~/Pictures/solarized/
-exec_always --no-startup-id betterlockscreen -w
+#exec --no-startup-id betterlockscreen -u ~/Pictures/solarized/
+exec_always --no-startup-id betterlockscreen -u ~/Pictures/solarized -w
 #exec_always --no-startup-id feh --bg-fill -z /home/chris/Pictures/solarized/
 
 #For locking the system
