@@ -209,7 +209,7 @@ exec_always --no-startup-id picom --experimental-backends
 bindsym $mod+f exec firefox
 bindsym $mod+n exec $term -e nmtui-connect
 bindsym $mod+r exec $term -e ranger
-bindsym $mod+c exec $term -e discord
+bindsym $mod+c exec --no-startup-id /usr/bin/discord
 
 #Resize bindings
 bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
