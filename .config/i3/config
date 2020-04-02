@@ -239,3 +239,5 @@ bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'm
 
 #screecast
 bindsym $mod+Print exec byzanz-record --duration=10 --x=0 --y=0 --width=2736 --height=1824 ~/Videos/tmp.gif
+
+bindsym $mod+shift+o exec '/home/chris/Downloads/ovito-pro-3.0.0-dev716-x86_64/bin/ovito' 
