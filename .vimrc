@@ -23,6 +23,12 @@ Plug 'SirVer/ultisnips'
 
 "Syntaxes
 Plug 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
 
 "Powerline
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -38,6 +44,7 @@ Plug 'scrooloose/nerdtree'
 
 "Python auto-complete
 Plug 'Valloric/YouCompleteMe'
+let g:SimpylFold_docstring_preview = 1
 
 "For Latex
 Plug 'lervag/vimtex'
