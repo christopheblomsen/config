@@ -190,3 +190,11 @@ set rtp+=/usr/lib/python3.8/site-packages/powerline/bindings/vim
 
 "Placeholder
 inoremap <c-j> <Esc>/<++><Return>dei
+
+"Inkspace
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+
+"NERDtree 
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
