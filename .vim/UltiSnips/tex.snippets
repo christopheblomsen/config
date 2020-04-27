@@ -1,0 +1,113 @@
+snippet beg "begin{} / end{}" bA
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',','.','?','-', ' ']:
+	snip.rv = ' '
+else:
+	snip.rv = ''
+`$2
+endsnippet
+
+snippet dm "Math" wA
+\[
+$1
+\] $0
+endsnippet
+
+snippet fig "figure" bA
+\begin{figure}[h!]
+	\centering
+	\caption{$1}
+	\label{$2}
+	\includegraphics{$3}
+\end{figure}
+$0
+endsnippet
+
+snippet lst "listings" bA
+\begin{lstlisting}[caption=$1]
+$2
+\end{lstlisting}
+$0
+endsnippet
+
+snippet sqrt "squareroot" wA
+\sqrt{$1}$0
+endsnippet
+
+snippet dd "derivate" wA
+\dd{$1}$0
+endsnippet
+
+snippet frac "fraction" wA
+\frac{$1}{$2}$0
+endsnippet
+
+snippet mathrm "mathrm" wA
+\mathrm{$1}$0
+endsnippet
+
+snippet epsilon "epsilon" wA
+\epsilon
+endsnippet
+
+snippet sigma "sigma" wA
+\sigma
+endsnippet
+
+snippet cdot "cdot" wA
+\cdot
+endsnippet
+
+snippet parder "PartialDerivate" wA
+\frac{\partial $1}{\partial $2} $0
+endsnippet
+
+snippet sine "sin" wA
+\sin($1) $0
+endsnippet
+
+snippet cosine "cos" wA
+\cos($1) $0
+endsnippet
+
+snippet theta "theta" wA
+\theta
+endsnippet
+
+snippet phi "phi" wA
+\phi
+endsnippet
+
+snippet mathbf "mathbf" wA
+\mathbf{$1}$0
+endsnippet
+
+snippet uveci "unit i vector" wA
+\uvec{i}
+endsnippet
+
+snippet uvecj "unit j vector" wA
+\uvec{j}
+endsnippet
+
+snippet uveck "unit k vector" wA
+\uvec{k}
+endsnippet
+
+snippet left( "parenthesis" wA
+\left( $1 \right) $0
+endsnippet
+
+snippet mathe "euler" wA
+\mathrm{e} $0
+endsnippet
+
+snippet hyperref "hyperref" wA
+\hyperref[$1]{$2} $0
+endsnippet
