@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+bindkey -v
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/chris/.oh-my-zsh"
@@ -8,8 +9,8 @@ export ZSH="/home/chris/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -71,15 +72,15 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	git
 	colored-man-pages
-	cloudapp
 	node
 	npm
 	brew
 	extract
 	z	
+	git-flow-completion
+	vi-mode
 )
-
-source $ZSH/zsh-vim-mode/zsh-vim-mode.plugin.zsh
+source /home/chris/.oh-my-zsh/custom/plugins/zsh-vim-mode
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -109,16 +110,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias same="gnome-terminal"
 #
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #Prompts
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram battery)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
-#Battery
-POWERLEVEL9K_BATTERY_STAGES="▁▂▃▄▅▆▇█"
 . ~/z.sh
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -127,7 +125,7 @@ if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
 else
     if [ -f "/home/chris/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/chris/anaconda3/etc/profile.d/conda.sh"
+# . "/home/chris/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
         CONDA_CHANGEPS1=false conda activate base
     else
         \export PATH="/home/chris/anaconda3/bin:$PATH"
@@ -135,3 +133,28 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/chris/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/chris/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/chris/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/chris/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+#Number =(1, 2)
+
+#number = ($Number)
+#iter = $(#number[*])
+
+#random = ${number[$((RANDOM%iter))]}
+
+fortune | cowsay | lolcat
